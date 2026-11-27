@@ -1,0 +1,60 @@
+# Pawnify - Pawnshop Management System
+
+A web-based pawnshop management system that centralizes customer information, pawned-item records, loan transactions, and payment histories for a single pawnshop.
+
+**Phase 1: Account Feature** (registration, login/logout, role-based dashboards, user profile)
+
+## Tech Stack
+- Django (full stack, Django templates)
+- PostgreSQL via Supabase
+- Bootstrap 5 with a custom sage green theme
+
+## User Roles
+| Role | Description | How the account is created |
+|---|---|---|
+| Admin | Manages employee accounts, monitors transactions, reviews loans, generates reports | Superuser (`createsuperuser`) |
+| Appraiser | Evaluates pawned items and records estimated values | Created by the admin in `/admin/` |
+| Cashier | Processes loan releases, records payments, updates transaction statuses | Created by the admin in `/admin/` |
+| Customer | Pawns items and retrieves them after payment | Self-registration at `/register/` |
+
+## Features (Phase 1)
+- Registration with validation (required fields, valid email, unique username/email, password confirmation)
+- Password hashing using Django's built-in authentication
+- Login and logout with success and error messages
+- Protected pages using `@login_required`
+- Role-based dashboards, with other roles' dashboards blocked by URL
+- User profile: view and edit your own details and profile photo
+
+## Setup
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/<your-username>/<repo-name>.git
+   cd <repo-name>
+   ```
+2. Create and activate a virtual environment
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+3. Install dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Create your `.env` file by copying `.env.example`, then fill in your own Supabase database credentials
+5. Apply migrations and create an admin account
+   ```bash
+   python manage.py migrate
+   python manage.py createsuperuser
+   ```
+6. Run the server
+   ```bash
+   python manage.py runserver
+   ```
+7. Open http://127.0.0.1:8000/
+
+## Creating Staff Accounts
+Log in to `/admin/` as the admin, open **Accounts → Users → Add user**, and choose the **Appraiser** or **Cashier** role.
+
+## Author
+[Sudueste, Kimberly Kate] - [G08]
