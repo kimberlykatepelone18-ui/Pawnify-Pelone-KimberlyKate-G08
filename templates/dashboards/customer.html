@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}Customer Dashboard{% endblock %}
 {% block content %}
-<h2>Customer Dashboard</h2>
-<p>Welcome, {{ user.get_full_name|default:user.username }}.</p>
-<ul>
-  <li>My pawned items</li>
-  <li>My loans</li>
-  <li>Payment history</li>
-</ul>
+<div class="dash-head">
+  <h1>Hello, {{ user.get_full_name|default:user.username }}</h1>
+  <span class="role-pill">Customer</span>
+  <p>Keep track of your items, loans and payments.</p>
+</div>
+<div class="task-grid">
+  <div class="task">
+    <h3>My pawned items</h3>
+    <p>See the items you have pawned.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+  <div class="task">
+    <h3>My loans</h3>
+    <p>Check your loan balance and due dates.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+  <div class="task">
+    <h3>Payment history</h3>
+    <p>View the payments you have made.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+</div>
 {% endblock %}

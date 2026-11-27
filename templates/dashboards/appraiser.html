@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}Appraiser Dashboard{% endblock %}
 {% block content %}
-<h2>Appraiser Dashboard</h2>
-<p>Welcome, {{ user.get_full_name|default:user.username }}.</p>
-<ul>
-  <li>Evaluate pawned items</li>
-  <li>Record item descriptions</li>
-  <li>Provide estimated appraisal values</li>
-</ul>
+<div class="dash-head">
+  <h1>Hello, {{ user.get_full_name|default:user.username }}</h1>
+  <span class="role-pill">Appraiser</span>
+  <p>Evaluate items brought in by customers.</p>
+</div>
+<div class="task-grid">
+  <div class="task">
+    <h3>Item appraisals</h3>
+    <p>Evaluate pawned items.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+  <div class="task">
+    <h3>Item descriptions</h3>
+    <p>Record each item's condition and details.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+  <div class="task">
+    <h3>Estimated values</h3>
+    <p>Set the appraisal value for an item.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+</div>
 {% endblock %}

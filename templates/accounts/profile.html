@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
 {% block title %}Profile{% endblock %}
 {% block content %}
-<div class="col-md-6 mx-auto card p-4">
-  <h3>My Profile</h3>
-  {% if profile_user.profile_photo %}
-    <img src="{{ profile_user.profile_photo.url }}" class="rounded-circle mb-3" width="120" height="120" style="object-fit:cover">
-  {% endif %}
-  <p><b>Name:</b> {{ profile_user.get_full_name }}</p>
-  <p><b>Username:</b> {{ profile_user.username }}</p>
-  <p><b>Email:</b> {{ profile_user.email }}</p>
-  <p><b>Contact:</b> {{ profile_user.contact_number|default:"—" }}</p>
-  <p><b>Address:</b> {{ profile_user.address|default:"—" }}</p>
-  <p><b>Role:</b> {{ profile_user.get_role_display }}</p>
-  <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+<div class="profile-card">
+  <div class="profile-banner"></div>
+  <div class="profile-body">
+    {% if profile_user.profile_photo %}
+      <img src="{{ profile_user.profile_photo.url }}" class="avatar" alt="Profile photo">
+    {% else %}
+      <div class="avatar">{{ profile_user.username|slice:":1"|upper }}</div>
+    {% endif %}
+
+    <h1>{{ profile_user.get_full_name|default:profile_user.username }}</h1>
+    <span class="role-pill">{{ profile_user.get_role_display }}</span>
+
+    <dl class="mt-3 mb-0">
+      <div class="detail"><dt>Username</dt><dd>{{ profile_user.username }}</dd></div>
+      <div class="detail"><dt>Email</dt><dd>{{ profile_user.email }}</dd></div>
+      <div class="detail"><dt>Contact number</dt><dd>{{ profile_user.contact_number|default:"Not added yet" }}</dd></div>
+      <div class="detail"><dt>Address</dt><dd>{{ profile_user.address|default:"Not added yet" }}</dd></div>
+    </dl>
+
+    <div class="profile-actions">
+      <a href="{% url 'edit_profile' %}" class="btn-sage">Edit profile</a>
+    </div>
+  </div>
 </div>
 {% endblock %}

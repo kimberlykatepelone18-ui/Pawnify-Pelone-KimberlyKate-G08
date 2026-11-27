@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 {% block title %}Cashier Dashboard{% endblock %}
 {% block content %}
-<h2>Cashier Dashboard</h2>
-<p>Welcome, {{ user.get_full_name|default:user.username }}.</p>
-<ul>
-  <li>Release loans</li>
-  <li>Record customer payments</li>
-  <li>Update transaction statuses</li>
-</ul>
+<div class="dash-head">
+  <h1>Hello, {{ user.get_full_name|default:user.username }}</h1>
+  <span class="role-pill">Cashier</span>
+  <p>Handle loan releases and customer payments.</p>
+</div>
+<div class="task-grid">
+  <div class="task">
+    <h3>Loan releases</h3>
+    <p>Release approved loans to customers.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+  <div class="task">
+    <h3>Payments</h3>
+    <p>Record customer payments.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+  <div class="task">
+    <h3>Transaction status</h3>
+    <p>Update the status of a transaction.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+</div>
 {% endblock %}

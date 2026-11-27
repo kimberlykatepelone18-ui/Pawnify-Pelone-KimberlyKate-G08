@@ -1,12 +1,31 @@
 {% extends 'base.html' %}
 {% block title %}Admin Dashboard{% endblock %}
 {% block content %}
-<h2>Admin Dashboard</h2>
-<p>Welcome, {{ user.get_full_name|default:user.username }}.</p>
-<ul>
-  <li>Manage employee accounts</li>
-  <li>Monitor pawn transactions</li>
-  <li>Review loan records</li>
-  <li>Generate business reports</li>
-</ul>
+<div class="dash-head">
+  <h1>Hello, {{ user.get_full_name|default:user.username }}</h1>
+  <span class="role-pill">Administrator</span>
+  <p>Here is what you can manage in Pawnify.</p>
+</div>
+<div class="task-grid">
+  <div class="task">
+    <h3>Employee accounts</h3>
+    <p>Add and manage staff accounts.</p>
+    <a href="/admin/">Open admin site</a>
+  </div>
+  <div class="task">
+    <h3>Pawn transactions</h3>
+    <p>Monitor activity across the shop.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+  <div class="task">
+    <h3>Loan records</h3>
+    <p>Review loans and their status.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+  <div class="task">
+    <h3>Business reports</h3>
+    <p>Generate reports for the shop.</p>
+    <span class="soon">Coming soon</span>
+  </div>
+</div>
 {% endblock %}
