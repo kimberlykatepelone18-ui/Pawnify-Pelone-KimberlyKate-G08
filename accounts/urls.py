@@ -12,4 +12,6 @@ urlpatterns = [
     path('dashboard/appraiser/', views.appraiser_dashboard, name='appraiser_dashboard'),
     path('dashboard/cashier/', views.cashier_dashboard, name='cashier_dashboard'),
     path('dashboard/customer/', views.customer_dashboard, name='customer_dashboard'),
+    path('profile/', views.profile, name='profile'),
+    path('profile/edit/', views.edit_profile, name='edit_profile'),
 ]

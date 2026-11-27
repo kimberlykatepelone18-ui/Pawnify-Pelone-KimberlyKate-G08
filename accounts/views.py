@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from .decorators import role_required
-from .forms import RegistrationForm
+from .forms import ProfileUpdateForm, RegistrationForm
 from .models import User
 
 def register(request):
@@ -61,3 +61,20 @@ def cashier_dashboard(request):
 @role_required(User.Role.CUSTOMER)
 def customer_dashboard(request):
     return render(request, 'dashboards/customer.html')
+
+
+@login_required
+def profile(request):
+    return render(request, 'accounts/profile.html', {'profile_user': request.user})
+
+
+@login_required
+def edit_profile(request):
+    form = ProfileUpdateForm(request.POST or None, request.FILES or None, instance=request.user)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile updated successfully.')
+            return redirect('profile')
+        messages.error(request, 'Please correct the errors below.')
+    return render(request, 'accounts/edit_profile.html', {'form': form})
