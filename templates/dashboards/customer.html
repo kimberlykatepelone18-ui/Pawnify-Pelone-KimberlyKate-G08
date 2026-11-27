@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Customer Dashboard{% endblock %}
+{% block content %}
+<h2>Customer Dashboard</h2>
+<p>Welcome, {{ user.get_full_name|default:user.username }}.</p>
+<ul>
+  <li>My pawned items</li>
+  <li>My loans</li>
+  <li>Payment history</li>
+</ul>
+{% endblock %}

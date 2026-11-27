@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Cashier Dashboard{% endblock %}
+{% block content %}
+<h2>Cashier Dashboard</h2>
+<p>Welcome, {{ user.get_full_name|default:user.username }}.</p>
+<ul>
+  <li>Release loans</li>
+  <li>Record customer payments</li>
+  <li>Update transaction statuses</li>
+</ul>
+{% endblock %}

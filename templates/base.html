@@ -10,18 +10,21 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark px-3">
   <a class="navbar-brand" href="{% url 'home' %}">Pawnify</a>
   <ul class="navbar-nav me-auto">
-    {% if user.is_authenticated %}
-      <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Dashboard</a></li>
+  {% if user.is_authenticated %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Dashboard</a></li>
+
     {% if user.role == 'admin' %}
-        <li class="nav-item"><a class="nav-link" href="/admin/">Manage Employees</a></li>
+      <li class="nav-item"><a class="nav-link" href="/admin/">Manage Employees</a></li>
     {% elif user.role == 'appraiser' %}
-        <li class="nav-item"><a class="nav-link" href="#">Appraisals</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Appraisals</a></li>
     {% elif user.role == 'cashier' %}
-        <li class="nav-item"><a class="nav-link" href="#">Loans &amp; Payments</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Loans &amp; Payments</a></li>
     {% elif user.role == 'customer' %}
-        <li class="nav-item"><a class="nav-link" href="#">My Pawned Items</a></li>
-    {% endif %}
-  </ul>
+      <li class="nav-item"><a class="nav-link" href="#">My Pawned Items</a></li>
+    {% endif %}   {# closes the role check #}
+
+  {% endif %}     {# closes is_authenticated #}
+</ul>
   {% if user.is_authenticated %}
     <span class="navbar-text me-3">{{ user.username }} ({{ user.get_role_display }})</span>
     <form method="post" action="{% url 'logout' %}">{% csrf_token %}
