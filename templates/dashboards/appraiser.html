@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Appraiser Dashboard{% endblock %}
+{% block content %}
+<h2>Appraiser Dashboard</h2>
+<p>Welcome, {{ user.get_full_name|default:user.username }}.</p>
+<ul>
+  <li>Evaluate pawned items</li>
+  <li>Record item descriptions</li>
+  <li>Provide estimated appraisal values</li>
+</ul>
+{% endblock %}
