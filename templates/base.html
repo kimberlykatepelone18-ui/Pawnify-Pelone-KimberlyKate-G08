@@ -12,6 +12,14 @@
   <ul class="navbar-nav me-auto">
     {% if user.is_authenticated %}
       <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Dashboard</a></li>
+    {% if user.role == 'admin' %}
+        <li class="nav-item"><a class="nav-link" href="/admin/">Manage Employees</a></li>
+    {% elif user.role == 'appraiser' %}
+        <li class="nav-item"><a class="nav-link" href="#">Appraisals</a></li>
+    {% elif user.role == 'cashier' %}
+        <li class="nav-item"><a class="nav-link" href="#">Loans &amp; Payments</a></li>
+    {% elif user.role == 'customer' %}
+        <li class="nav-item"><a class="nav-link" href="#">My Pawned Items</a></li>
     {% endif %}
   </ul>
   {% if user.is_authenticated %}
