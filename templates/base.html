@@ -13,7 +13,10 @@
 </head>
 <body>
 <nav class="site-nav">
-  <a class="brand" href="{% url 'home' %}"><span class="brand-mark">P</span>Pawnify</a>
+  <a class="brand" href="{% url 'home' %}">
+  <img src="{% static 'images/pawnify-logo.png' %}" alt="Pawnify logo" class="auth-logo">
+  <span>Pawnify</span>
+</a>
 
   <ul class="nav-links">
     {% if user.is_authenticated %}
@@ -36,7 +39,6 @@
   <div class="nav-user">
     {% if user.is_authenticated %}
       <span class="name">{{ user.username }}</span>
-      <span class="role-pill">{{ user.get_role_display }}</span>
       <form method="post" action="{% url 'logout' %}" class="m-0">{% csrf_token %}
         <button class="btn-ghost">Log out</button>
       </form>

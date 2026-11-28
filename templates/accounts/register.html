@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Register{% endblock %}
 {% block content %}
+{% load static %}
 <div class="auth-shell">
   <aside class="auth-aside">
-    <span class="brand-mark big">P</span>
+    <img src="{% static 'images/pawnify-logo.png' %}" alt="Pawnify logo" class="auth-logo">
     <h2>Join Pawnify</h2>
     <p>Create a customer account to keep track of your items, loans and payment history.</p>
   </aside>

@@ -1,0 +1,267 @@
+[1mdiff --git a/static/css/pawnify.css b/static/css/pawnify.css[m
+[1mindex de88730..2c800c4 100644[m
+[1m--- a/static/css/pawnify.css[m
+[1m+++ b/static/css/pawnify.css[m
+[36m@@ -11,10 +11,17 @@[m
+ [m
+ body {[m
+   font-family: 'Figtree', system-ui, sans-serif;[m
+[31m-  background: var(--sage-100);[m
+   color: var(--ink);[m
+   min-height: 100vh;[m
+[32m+[m[32m  background-color: #c4cb9c;[m
+[32m+[m[32m  background-image:[m
+[32m+[m[32m    /* olive glow, top-left */[m
+[32m+[m[32m    radial-gradient(ellipse 60% 70% at 0% 25%, #86a047 0%, rgba(134, 160, 71, 0) 100%),[m
+[32m+[m[32m    /* dark green band, right side */[m
+[32m+[m[32m    radial-gradient(ellipse 55% 130% at 105% 45%, #4a6620 0%, #4f6b24 45%, rgba(79, 107, 36, 0) 100%);[m
+[32m+[m[32m  background-attachment: fixed;[m
+ }[m
+[32m+[m
+ h1, h2, h3, .brand {[m
+   font-family: 'Fraunces', Georgia, serif;[m
+   font-weight: 600;[m
+[36m@@ -51,7 +58,31 @@[m [ma:hover { color: var(--ink); }[m
+   font-family: 'Fraunces', Georgia, serif;[m
+   font-size: 1rem; font-weight: 600;[m
+ }[m
+[31m-.brand-mark.big { width: 56px; height: 56px; font-size: 1.7rem; }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m.brand-mark.big { width: 10px; height: 10px; font-size: 1.7rem; }[m
+[32m+[m
+[32m+[m[32m.brand-logo {[m
+[32m+[m[32m  width: 34px;[m
+[32m+[m[32m  height: 34px;[m
+[32m+[m[32m  border-radius: 50%;[m
+[32m+[m[32m  object-fit: cover;[m
+[32m+[m[32m  background: var(--paper);[m
+[32m+[m[32m  padding: 2px;[m
+[32m+[m[32m  display: inline-block;[m
+[32m+[m[32m  flex-shrink: 0;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.auth-logo {[m
+[32m+[m[32m  width: 50px;[m
+[32m+[m[32m  height: 50px;[m
+[32m+[m[32m  border-radius: 50%;[m
+[32m+[m[32m  object-fit: cover;[m
+[32m+[m[32m  background: var(--paper);[m
+[32m+[m[32m  padding: 4px;[m
+[32m+[m[32m  display: block;[m
+[32m+[m[32m}[m
+[32m+[m
+ .nav-links {[m
+   display: flex; flex-wrap: wrap; gap: 0.25rem;[m
+   list-style: none; margin: 0; padding: 0; flex: 1;[m
+[36m@@ -67,12 +98,13 @@[m [ma:hover { color: var(--ink); }[m
+ .nav-user { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }[m
+ .nav-user .name { color: var(--sage-300); font-size: 0.9rem; }[m
+ .role-pill {[m
+[31m-  background: var(--sage-100);[m
+[31m-  color: var(--sage-700);[m
+[32m+[m[32m  background: var(--sage-300); /* Stands out against --sage-100 page background */[m
+[32m+[m[32m  color: var(--ink);[m
+   padding: 0.2rem 0.7rem;[m
+   border-radius: 999px;[m
+   font-size: 0.8rem;[m
+   font-weight: 600;[m
+[32m+[m[32m  display: inline-block;[m
+ }[m
+ [m
+ /* ---------- Buttons ---------- */[m
+[36m@@ -89,8 +121,8 @@[m [ma:hover { color: var(--ink); }[m
+ .btn-sage:hover { background: var(--ink); color: #fff; }[m
+ .btn-ghost { background: transparent; color: var(--sage-300); border-color: var(--sage-500); padding: 0.35rem 0.9rem; font-size: 0.9rem; }[m
+ .btn-ghost:hover { background: var(--sage-500); color: var(--ink); }[m
+[31m-.btn-brass { background: var(--brass); color: var(--ink); padding: 0.35rem 0.9rem; font-size: 0.9rem; }[m
+[31m-.btn-brass:hover { background: #C0A25F; color: var(--ink); }[m
+[32m+[m[32m.btn-brass { background: var(--sage-700); color: #fff; padding: 0.35rem 0.9rem; font-size: 0.9rem; }[m
+[32m+[m[32m.btn-brass:hover { background: var(--ink); color: #fff; }[m
+ .btn-outline-sage { background: transparent; color: var(--sage-700); border-color: var(--sage-300); }[m
+ .btn-outline-sage:hover { background: var(--sage-100); color: var(--ink); }[m
+ [m
+[36m@@ -112,20 +144,31 @@[m [ma:hover { color: var(--ink); }[m
+   display: grid;[m
+   grid-template-columns: 1fr 1.15fr;[m
+   max-width: 940px;[m
+[31m-  margin: 2rem auto;[m
+[32m+[m[32m  margin: 0 auto 2rem;[m[41m [m
+   background: var(--paper);[m
+   border-radius: 20px;[m
+   overflow: hidden;[m
+   box-shadow: 0 24px 48px -28px rgba(36, 51, 42, 0.45);[m
+ }[m
+ .auth-aside {[m
+[31m-  background: var(--sage-700);[m
+[31m-  color: var(--paper);[m
+[32m+[m[32m  background:[m
+[32m+[m[32m    /* olive patch, top-left */[m
+[32m+[m[32m    radial-gradient(ellipse 55% 55% at 10% 0%, rgba(98, 128, 48, 0.85), rgba(98, 128, 48, 0) 100%),[m
+[32m+[m[32m    /* soft glow, center */[m
+[32m+[m[32m    radial-gradient(ellipse 60% 60% at 50% 58%, #c9d9a0 0%, rgba(201, 217, 160, 0) 100%),[m
+[32m+[m[32m    /* darker olive base */[m
+[32m+[m[32m    #8da84a;[m
+[32m+[m[32m  color: var(--ink);[m
+   padding: 2.75rem 2.25rem;[m
+[31m-  display: flex; flex-direction: column; justify-content: center; gap: 1rem;[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m[32m  justify-content: flex-start;[m
+[32m+[m[32m  gap: 1rem;[m
+ }[m
+[31m-.auth-aside h2 { font-size: 2rem; margin: 0; }[m
+[31m-.auth-aside p { color: var(--sage-100); margin: 0; line-height: 1.6; }[m
+[32m+[m
+[32m+[m[32m.auth-aside h2 { color: var(--ink); }[m
+[32m+[m[32m.auth-aside p { color: var(--sage-700); }[m
+[32m+[m
+ .auth-main { padding: 2.5rem 2.25rem; }[m
+ .auth-main h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }[m
+ .auth-main .sub { color: var(--sage-700); margin-bottom: 1.5rem; }[m
+[36m@@ -134,6 +177,24 @@[m [ma:hover { color: var(--ink); }[m
+   .auth-aside { padding: 1.75rem; }[m
+ }[m
+ [m
+[32m+[m[32mbody:has(.auth-shell) {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mbody:has(.auth-shell) > main,[m
+[32m+[m[32mbody:has(.auth-shell) > .container {[m
+[32m+[m[32m  flex: 1;[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  align-items: center;[m
+[32m+[m[32m  justify-content: center;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mbody:has(.auth-shell) .auth-shell {[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  margin: 0 auto;   /* the wrapper handles vertical centering */[m
+[32m+[m[32m}[m
+[32m+[m
+ /* ---------- Forms ---------- */[m
+ .field { margin-bottom: 1rem; }[m
+ .field label { display: block; font-weight: 500; font-size: 0.9rem; margin-bottom: 0.35rem; }[m
+[36m@@ -167,7 +228,16 @@[m [ma:hover { color: var(--ink); }[m
+   overflow: hidden;[m
+   box-shadow: 0 24px 48px -28px rgba(36, 51, 42, 0.45);[m
+ }[m
+[31m-.profile-banner { background: var(--sage-700); height: 110px; }[m
+[32m+[m[32m.profile-banner {[m
+[32m+[m[32m  height: 110px;[m
+[32m+[m[32m  background-color: #121a18;[m
+[32m+[m[32m  background-image:[m
+[32m+[m[32m    radial-gradient(ellipse 55% 140% at 5% 0%, #12996b 0%, rgba(18, 153, 107, 0) 100%),[m
+[32m+[m[41m   [m
+[32m+[m[32m    radial-gradient(ellipse 50% 120% at 55% 35%, rgba(12, 110, 66, 0.85) 0%, rgba(12, 110, 66, 0) 100%),[m
+[32m+[m[41m   [m
+[32m+[m[32m    radial-gradient(ellipse 25% 90% at 100% 100%, rgba(8, 80, 48, 0.9) 0%, rgba(8, 80, 48, 0) 100%);[m
+[32m+[m[32m}[m
+ .profile-body { padding: 0 2.25rem 2.25rem; }[m
+ .avatar {[m
+   width: 104px; height: 104px;[m
+[36m@@ -193,10 +263,15 @@[m [ma:hover { color: var(--ink); }[m
+ .profile-actions { margin-top: 1.5rem; display: flex; gap: 0.75rem; }[m
+ [m
+ /* ---------- Dashboards ---------- */[m
+[31m-.dash-head { margin: 2rem 0 1.5rem; }[m
+[32m+[m[32m.dash-head {[m
+[32m+[m[32m  background: var(--paper);[m
+[32m+[m[32m  border-radius: 14px;[m
+[32m+[m[32m  padding: 1.25rem 1.5rem;[m
+[32m+[m[32m  margin: 2rem 0 1.5rem;[m
+[32m+[m[32m}[m
+[32m+[m[32m.dash-wrap { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }[m
+ .dash-head h1 { font-size: 2.1rem; margin: 0 0 0.5rem; }[m
+[31m-.dash-head p { color: var(--sage-700); margin: 0.5rem 0 0; }[m
+[31m-.task-grid {[m
+[32m+[m[32m.dash-head p { color: var(--ink); margin: 0.5rem 0 0; }.task-grid {[m
+   display: grid;[m
+   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));[m
+   gap: 1rem;[m
+[1mdiff --git a/templates/accounts/login.html b/templates/accounts/login.html[m
+[1mindex 1bf9075..9e49b72 100644[m
+[1m--- a/templates/accounts/login.html[m
+[1m+++ b/templates/accounts/login.html[m
+[36m@@ -1,9 +1,10 @@[m
+ {% extends 'base.html' %}[m
+ {% block title %}Log in{% endblock %}[m
+ {% block content %}[m
+[32m+[m[32m{% load static %}[m
+ <div class="auth-shell">[m
+   <aside class="auth-aside">[m
+[31m-    <span class="brand-mark big">P</span>[m
+[32m+[m[32m    <img src="{% static 'images/pawnify-logo.png' %}" alt="Pawnify logo" class="auth-logo">[m
+     <h2>Welcome back</h2>[m
+     <p>Log in to see your pawned items, loans and payments in one place.</p>[m
+   </aside>[m
+[1mdiff --git a/templates/accounts/register.html b/templates/accounts/register.html[m
+[1mindex 05d4274..a1b1715 100644[m
+[1m--- a/templates/accounts/register.html[m
+[1m+++ b/templates/accounts/register.html[m
+[36m@@ -1,9 +1,10 @@[m
+ {% extends 'base.html' %}[m
+ {% block title %}Register{% endblock %}[m
+ {% block content %}[m
+[32m+[m[32m{% load static %}[m
+ <div class="auth-shell">[m
+   <aside class="auth-aside">[m
+[31m-    <span class="brand-mark big">P</span>[m
+[32m+[m[32m    <img src="{% static 'images/pawnify-logo.png' %}" alt="Pawnify logo" class="auth-logo">[m
+     <h2>Join Pawnify</h2>[m
+     <p>Create a customer account to keep track of your items, loans and payment history.</p>[m
+   </aside>[m
+[1mdiff --git a/templates/base.html b/templates/base.html[m
+[1mindex ba7a475..6168a7e 100644[m
+[1m--- a/templates/base.html[m
+[1m+++ b/templates/base.html[m
+[36m@@ -13,7 +13,10 @@[m
+ </head>[m
+ <body>[m
+ <nav class="site-nav">[m
+[31m-  <a class="brand" href="{% url 'home' %}"><span class="brand-mark">P</span>Pawnify</a>[m
+[32m+[m[32m  <a class="brand" href="{% url 'home' %}">[m
+[32m+[m[32m  <img src="{% static 'images/pawnify-logo.png' %}" alt="Pawnify logo" class="auth-logo">[m
+[32m+[m[32m  <span>Pawnify</span>[m
+[32m+[m[32m</a>[m
+ [m
+   <ul class="nav-links">[m
+     {% if user.is_authenticated %}[m
+[36m@@ -36,7 +39,6 @@[m
+   <div class="nav-user">[m
+     {% if user.is_authenticated %}[m
+       <span class="name">{{ user.username }}</span>[m
+[31m-      <span class="role-pill">{{ user.get_role_display }}</span>[m
+       <form method="post" action="{% url 'logout' %}" class="m-0">{% csrf_token %}[m
+         <button class="btn-ghost">Log out</button>[m
+       </form>[m
+[1mdiff --git a/templates/dashboards/cashier.html b/templates/dashboards/cashier.html[m
+[1mindex 101dcc6..3dac53f 100644[m
+[1m--- a/templates/dashboards/cashier.html[m
+[1m+++ b/templates/dashboards/cashier.html[m
+[36m@@ -4,7 +4,7 @@[m
+ <div class="dash-head">[m
+   <h1>Hello, {{ user.get_full_name|default:user.username }}</h1>[m
+   <span class="role-pill">Cashier</span>[m
+[31m-  <p>Handle loan releases and customer payments.</p>[m
+[32m+[m[32m  <p>Keep track of your items, loans and payments.</p>[m
+ </div>[m
+ <div class="task-grid">[m
+   <div class="task">[m
+[1mdiff --git a/templates/dashboards/customer.html b/templates/dashboards/customer.html[m
+[1mindex fff6149..208eb87 100644[m
+[1m--- a/templates/dashboards/customer.html[m
+[1m+++ b/templates/dashboards/customer.html[m
+[36m@@ -4,8 +4,9 @@[m
+ <div class="dash-head">[m
+   <h1>Hello, {{ user.get_full_name|default:user.username }}</h1>[m
+   <span class="role-pill">Customer</span>[m
+[31m-  <p>Keep track of your items, loans and payments.</p>[m
+[32m+[m[32m  <p>Track your pawned items, loans and payments in one place.</p>[m
+ </div>[m
+[32m+[m
+ <div class="task-grid">[m
+   <div class="task">[m
+     <h3>My pawned items</h3>[m
